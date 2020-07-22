@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Data;
 
 namespace ClientesProdutos.Infrastructure.Persistence
 {
-    interface IDb
+    public interface IDb
     {
+        IDbConnection Connection();
     }
-}
+}                                                
