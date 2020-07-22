@@ -1,10 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClientesProdutos.Shared.Entities
 {
-    class CommonEntity
+    public class CommonEntity
     {
+        public Guid ID { get; private set; }
+
+        public CommonEntity()
+        {
+            ID = Guid.NewGuid();
+        }
     }
 }
