@@ -30,30 +30,33 @@ namespace ClientesProdutos.Domain.Tests
             ClienteTeste.AlterarNome("José da Silva");
             Assert.AreEqual("José da Silva", ClienteTeste.Nome);
             Assert.AreNotEqual("João da Silva", ClienteTeste.Nome);
+            Assert.IsTrue(ClienteTeste.isValid);
         }
 
         [Test]
         public void CPFValidoRetornaValido()
         {
             Assert.IsTrue(ClienteTeste.Cpf.isValid);
+            Assert.IsTrue(ClienteTeste.isValid);
         }
 
         [Test]
         public void CPFInvalidoRetornaInvalido()
         {
             Assert.IsFalse(ClienteCPFInvalido.Cpf.isValid);
+            Assert.IsFalse(ClienteCPFInvalido.isValid);
         }
         [Test]
         public void PodeIncluirProdutos()
         {
-            var produto = new ProdutoEntity("Filme de Ação", 
-                                                      "Andrew");
+            var produto = new ProdutoEntity("Filme de Ação", "Andrew");
 
             var qtdProdutosInicial = ClienteTeste.Produtos.Count;
             ClienteTeste.AdicionarProduto(produto);
 
             Assert.AreEqual(0, qtdProdutosInicial);
             Assert.AreEqual(1, ClienteTeste.Produtos.Count);
+            Assert.IsTrue(ClienteTeste.isValid);
         }
         [Test]
         public void PodeRemoverProdutos()
@@ -66,6 +69,7 @@ namespace ClientesProdutos.Domain.Tests
 
             Assert.AreEqual(1, qtdProdutosInicial);
             Assert.AreEqual(0, ClienteTeste.Produtos.Count);
+            Assert.IsTrue(ClienteTeste.isValid);
         }
         [Test]
         public void NaoPermiteMaisde15FilmesPorCliente()
@@ -77,7 +81,29 @@ namespace ClientesProdutos.Domain.Tests
                     );
 
 
-            Assert.AreEqual(15, ClienteTeste.Produtos.Count);
+            Assert.IsFalse(ClienteTeste.isValid);
+        }
+        [Test]
+        public void NaoPermiteMaisde150CaracteresNoNome()
+        {
+            string novonome = string.Empty;
+            for (var count = 1; count <= 151; count++)
+                novonome += "a";
+
+            ClienteTeste.AlterarNome(novonome);
+
+            Assert.IsFalse(ClienteTeste.isValid);
+        }
+        [Test]
+        public void PermiteAte150CaracteresNoNome()
+        {
+            string novonome = string.Empty;
+            for (var count = 1; count <= 150; count++)
+                novonome += "a";
+
+            ClienteTeste.AlterarNome(novonome);
+
+            Assert.IsTrue(ClienteTeste.isValid);
         }
     }
 }

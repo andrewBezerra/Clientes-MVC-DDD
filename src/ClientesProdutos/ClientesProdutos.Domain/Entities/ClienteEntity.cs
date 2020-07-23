@@ -20,29 +20,19 @@ namespace ClientesProdutos.Domain.Entities
             Cpf = cpf;
 
             //FAST FAIL VALIDATION
-            if (!Cpf.isValid)
-            {
-                this.Notifications.Items
-                    .Add(("CPF", "CPF é inválido."));
-                this.isValid = false;
-            }
-            if (this.Nome.Length > 150)
-            {
-                this.Notifications.Items
-                    .Add(("Nome",
-                          "Nome não pode ter mais do que 150 caracteres"));
-                this.isValid = false;
-            }
+            Validate();
         }
 
-        public void AlterarNome(string novoNome) => this.Nome = novoNome;
+        public void AlterarNome(string novoNome)
+        {
+            ValidateNome(novoNome);
+            this.Nome = novoNome;
+        }
 
         public void AdicionarProduto(ProdutoEntity produto)
         {
-            if (Produtos.Count() == 15)
-                return;
-
-            Produtos.Add(produto);
+           Produtos.Add(produto);
+            ValidateProdutos();
         }
 
         public void RemoverProduto(ProdutoEntity produto)
@@ -51,6 +41,46 @@ namespace ClientesProdutos.Domain.Entities
                 return;
 
             Produtos.Remove(produto);
+        }
+        public override bool Validate()
+        {
+            this.isValid = true;
+            ValidateCPF();
+            ValidateNome(this.Nome);
+            ValidateProdutos();
+            return base.Validate();
+        }
+
+        private void ValidateNome(string value)
+        {
+
+            if (value.Length > 150)
+            {
+                this.Notifications.Items
+                     .Add(("Nome",
+                           "Nome do cliente não pode ter mais do que 150 caracteres"));
+                this.isValid = false;
+            }
+
+        }
+        private void ValidateCPF()
+        {
+            if (!Cpf.isValid)
+            {
+                this.Notifications.Items
+                    .Add(("CPF", "CPF do cliente é inválido."));
+                this.isValid = false;
+            }
+        }
+        private void ValidateProdutos()
+        {
+            if (Produtos.Count > 15)
+            {
+                this.Notifications.Items
+                   .Add(("Produtos", "Cliente não deve conter mais de 15 produtos."));
+                this.isValid = false;
+            }
+                         
         }
     }
 }

@@ -12,6 +12,10 @@ namespace ClientesProdutos.Shared.Entities
                                                                                                  
         public bool isValid { get; protected set; }
 
+        public virtual bool Validate()
+        {
+            return this.isValid;
+        }
 
         public CommonEntity()
         {
