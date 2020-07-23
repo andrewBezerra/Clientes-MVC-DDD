@@ -54,7 +54,7 @@ namespace ClientesProdutos.Domain.Entities
         private void ValidateNome(string value)
         {
 
-            if (value.Length > 150)
+            if (value.Length > 160)
             {
                 this.Notifications.Items
                      .Add(("Nome",
