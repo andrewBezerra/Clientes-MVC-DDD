@@ -27,8 +27,8 @@ namespace ClientesProdutos.Domain.Tests
         [Test]
         public void PodeAlterarNome()
         {
-            ClienteTeste.AlterarNome("José da Silva");
-            Assert.AreEqual("José da Silva", ClienteTeste.Nome);
+            ClienteTeste.AlterarNome("Wilson da Silva");
+            Assert.AreEqual("Wilson da Silva", ClienteTeste.Nome);
             Assert.AreNotEqual("João da Silva", ClienteTeste.Nome);
             Assert.IsTrue(ClienteTeste.isValid);
         }
