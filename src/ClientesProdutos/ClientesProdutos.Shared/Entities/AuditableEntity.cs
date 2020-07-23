@@ -2,8 +2,9 @@
 
 namespace ClientesProdutos.Shared.Entities
 {
-    public class AuditableEntity
+    public class AuditableEntity:CommonEntity
     {
+
         public AuditableEntity(string username)
         {
             CreatedBy = username;

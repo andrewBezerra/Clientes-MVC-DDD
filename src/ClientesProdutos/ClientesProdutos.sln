@@ -13,13 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebUI", "WebUI", "{E0F22365-96D8-4CB7-83AD-CFE6B49A67A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.Domain", "ClientesProdutos.Domain\ClientesProdutos.Domain.csproj", "{7C021BEF-8875-4971-88AB-CE5068C594BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientesProdutos.Domain", "ClientesProdutos.Domain\ClientesProdutos.Domain.csproj", "{7C021BEF-8875-4971-88AB-CE5068C594BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.Infrastructure", "ClientesProdutos.Infrastructure\ClientesProdutos.Infrastructure.csproj", "{04471A98-BC1A-4C0F-B82B-009DFF66CFD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientesProdutos.Infrastructure", "ClientesProdutos.Infrastructure\ClientesProdutos.Infrastructure.csproj", "{04471A98-BC1A-4C0F-B82B-009DFF66CFD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.Application", "ClientesProdutos.Application\ClientesProdutos.Application.csproj", "{1DCD8576-8BE0-4629-9EDF-9AB5B7D61C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientesProdutos.Application", "ClientesProdutos.Application\ClientesProdutos.Application.csproj", "{1DCD8576-8BE0-4629-9EDF-9AB5B7D61C36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.Shared", "ClientesProdutos.Shared\ClientesProdutos.Shared.csproj", "{B2BAEF68-D61B-465F-B707-67151FB8AD10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientesProdutos.Shared", "ClientesProdutos.Shared\ClientesProdutos.Shared.csproj", "{B2BAEF68-D61B-465F-B707-67151FB8AD10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.MVC", "ClientesProdutos.MVC\ClientesProdutos.MVC.csproj", "{066FF568-D0C9-4199-A4D9-E9A710A5821E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7AC593D-7699-4F5A-A354-55B1A48BA305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientesProdutos.Domain.Tests", "ClientesProdutos.Domain.Tests\ClientesProdutos.Domain.Tests.csproj", "{75913C1F-5BB0-403F-888A-1189116BCEA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,15 +49,26 @@ Global
 		{B2BAEF68-D61B-465F-B707-67151FB8AD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2BAEF68-D61B-465F-B707-67151FB8AD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2BAEF68-D61B-465F-B707-67151FB8AD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066FF568-D0C9-4199-A4D9-E9A710A5821E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066FF568-D0C9-4199-A4D9-E9A710A5821E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066FF568-D0C9-4199-A4D9-E9A710A5821E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066FF568-D0C9-4199-A4D9-E9A710A5821E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75913C1F-5BB0-403F-888A-1189116BCEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75913C1F-5BB0-403F-888A-1189116BCEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75913C1F-5BB0-403F-888A-1189116BCEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75913C1F-5BB0-403F-888A-1189116BCEA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{A4672368-2683-4902-83C6-7927DD06AB44} = {163DB256-CC42-4E1F-89ED-B807E90E7CA2}
 		{7C021BEF-8875-4971-88AB-CE5068C594BA} = {163DB256-CC42-4E1F-89ED-B807E90E7CA2}
 		{04471A98-BC1A-4C0F-B82B-009DFF66CFD3} = {DFC4C82D-0817-4EF6-9648-D928886CD3D6}
 		{1DCD8576-8BE0-4629-9EDF-9AB5B7D61C36} = {4F9E9BD4-0D97-4CD1-AA84-B434857CE890}
 		{B2BAEF68-D61B-465F-B707-67151FB8AD10} = {A4672368-2683-4902-83C6-7927DD06AB44}
+		{066FF568-D0C9-4199-A4D9-E9A710A5821E} = {E0F22365-96D8-4CB7-83AD-CFE6B49A67A9}
+		{75913C1F-5BB0-403F-888A-1189116BCEA6} = {F7AC593D-7699-4F5A-A354-55B1A48BA305}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3509B201-030B-47F0-88E7-64072B724C74}
