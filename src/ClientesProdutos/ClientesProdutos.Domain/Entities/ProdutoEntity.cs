@@ -13,6 +13,7 @@ namespace ClientesProdutos.Domain.Entities
                              string username
                             ) : base(username)
         {
+            Nome = nome;
             if (this.Nome.Length > 150)
             {
                 this.Notifications.Items

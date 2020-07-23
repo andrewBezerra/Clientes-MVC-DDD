@@ -9,10 +9,9 @@ namespace ClientesProdutos.Domain.Entities
     {
         public string Nome { get; private set; }
         public CPF Cpf { get; private set; }
-        public IList<ProdutoEntity> Produtos { get; private set; }
+        public IList<ProdutoEntity> Produtos { get; private set; } = new List<ProdutoEntity>();
 
-
-        public ClienteEntity(string nome, 
+        public ClienteEntity(string nome,
                              string cpf,
                              string username
                             ) : base(username)
@@ -30,11 +29,12 @@ namespace ClientesProdutos.Domain.Entities
             if (this.Nome.Length > 150)
             {
                 this.Notifications.Items
-                    .Add(("Nome", 
+                    .Add(("Nome",
                           "Nome não pode ter mais do que 150 caracteres"));
                 this.isValid = false;
             }
         }
+
         public void AlterarNome(string novoNome) => this.Nome = novoNome;
 
         public void AdicionarProduto(ProdutoEntity produto)
@@ -42,9 +42,15 @@ namespace ClientesProdutos.Domain.Entities
             if (Produtos.Count() == 15)
                 return;
 
-            Produtos.Add()
-
+            Produtos.Add(produto);
         }
 
+        public void RemoverProduto(ProdutoEntity produto)
+        {
+            if (Produtos.Count() == 0)
+                return;
+
+            Produtos.Remove(produto);
+        }
     }
 }
