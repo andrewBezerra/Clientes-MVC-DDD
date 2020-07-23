@@ -3,23 +3,25 @@ using NUnit.Framework;
 
 namespace ClientesProdutos.Domain.Tests
 {
-    [Category("Domain-Entities")]
+    [Category("Cliente-Domain-Entities")]
     public class ClienteEntityTest
     {
-        private ClienteEntity ClienteTeste =
-            new ClienteEntity("João da Silva",
-                              "18480847816",
-                              "Andrew");
+        private ClienteEntity ClienteTeste;
 
-        private ClienteEntity ClienteCPFInvalido =
-            new ClienteEntity("Arthur da Silva",
-                              "00000000000",
-                              "Andrew");
+        private ClienteEntity ClienteCPFInvalido;
 
         [SetUp]
         public void Setup()
         {
+            ClienteTeste =
+            new ClienteEntity("João da Silva",
+                              "18480847816",
+                              "Andrew");
 
+            ClienteCPFInvalido =
+            new ClienteEntity("Arthur da Silva",
+                              "00000000000",
+                              "Andrew");
         }
 
         [Test]
@@ -44,7 +46,8 @@ namespace ClientesProdutos.Domain.Tests
         [Test]
         public void PodeIncluirProdutos()
         {
-            ProdutoEntity produto = new ProdutoEntity("Filme de Ação", "Andrew");
+            var produto = new ProdutoEntity("Filme de Ação", 
+                                                      "Andrew");
 
             var qtdProdutosInicial = ClienteTeste.Produtos.Count;
             ClienteTeste.AdicionarProduto(produto);
@@ -55,7 +58,7 @@ namespace ClientesProdutos.Domain.Tests
         [Test]
         public void PodeRemoverProdutos()
         {
-            ProdutoEntity produto = new ProdutoEntity("Filme de Ação", "Andrew");
+            var produto = new ProdutoEntity("Filme de Ação", "Andrew");
 
             ClienteTeste.AdicionarProduto(produto);
             var qtdProdutosInicial = ClienteTeste.Produtos.Count;
