@@ -4,13 +4,16 @@ namespace ClientesProdutos.Domain.Entities
 {
     public class ProdutoEntity : AuditableEntity
     {
-        public string Nome { get; private set; }
+        public virtual string Nome { get => _nome; }
+        private string _nome;
 
+        protected ProdutoEntity():base("teste")
+        { }
         public ProdutoEntity(string nome,
                              string username
                             ) : base(username)
         {
-            Nome = nome;
+            _nome = nome;
             Validate();
         }
 
@@ -32,10 +35,10 @@ namespace ClientesProdutos.Domain.Entities
             }
         }
 
-        public void AlterarNome(string novoNome)
+        public virtual void AlterarNome(string novoNome)
         {
             ValidateNome(novoNome);
-            this.Nome = novoNome;
+            this._nome = novoNome;
         }
     }
 }

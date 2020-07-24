@@ -11,12 +11,12 @@ namespace ClientesProdutos.Shared.Entities
             Created = DateTime.Now;
         }
 
-        public string CreatedBy { get; private set; }
+        public virtual string CreatedBy { get; private set; }
 
-        public DateTime Created { get; private set; }
+        public virtual DateTime Created { get; private set; }
 
-        public string LastModifiedBy { get; private set; }
+        public virtual string LastModifiedBy { get; private set; }
 
-        public DateTime? LastModified { get; private set; }
+        public virtual DateTime? LastModified { get; private set; }
     }
 }

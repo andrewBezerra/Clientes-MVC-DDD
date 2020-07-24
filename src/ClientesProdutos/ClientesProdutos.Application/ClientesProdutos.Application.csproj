@@ -8,4 +8,12 @@
     <ProjectReference Include="..\ClientesProdutos.Domain\ClientesProdutos.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Clientes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.0.1" />
+  </ItemGroup>
+
 </Project>

@@ -27,7 +27,7 @@ CREATE TABLE [Produto](
 	[CreatedBy] [varchar](150) NOT NULL,
 	[Created] [datetime] NOT NULL,
 	[LastModifiedBy] [varchar](150) NULL,
-	[LasModified] [datetime] NULL,
+	[LastModified] [datetime] NULL,
  CONSTRAINT [PK_Produto] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
